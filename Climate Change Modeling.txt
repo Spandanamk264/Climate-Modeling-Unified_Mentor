@@ -1,0 +1,1627 @@
+﻿Project Title Climate Change Modeling
+
+Tools Jupyter Notebook and VS code
+
+Technologies Machine learning
+
+Domain
+Data Science
+
+Project Difficulties level Advanced
+
+Dataset : Dataset is available in the given link. You can download it at your
+convenience.
+
+Click here to download data set
+
+About Dataset
+Overview
+
+This dataset encompasses over 500 user comments collected from high-performing
+posts on NASA's Facebook page dedicated to climate change
+(https://web.facebook.com/NASAClimateChange/). The comments, gathered from
+various posts between 2020 and 2023, offer a diverse range of public opinions and
+sentiments about climate change and NASA's related activities.
+
+
+
+Data Science Applications
+
+Despite not being a large dataset, it offers valuable opportunities for analysis and
+Natural Language Processing (NLP). Potential applications include:
+
+● Sentiment Analysis: Gauge public opinion on climate change and NASA's
+communication strategies.
+
+● Trend Analysis: Identify shifts in public sentiment over the specified period.
+● Engagement Analysis: Understand the correlation between the content of a
+
+post and user engagement.
+● Topic Modeling: Discover prevalent themes in public discourse about climate
+
+change.
+
+Column Descriptors
+
+1. Date: The date and time when the comment was posted.
+2. LikesCount: The number of likes each comment received.
+3. ProfileName: The anonymized name of the user who posted the comment.
+4. CommentsCount: The number of responses each comment received.
+5. Text: The actual text content of the comment.
+
+Ethical Considerations and Data Privacy
+
+All profile names in this dataset have been hashed using SHA-256 to ensure privacy
+while maintaining data usability. This approach aligns with ethical data mining
+practices, ensuring that individual privacy is respected without compromising the
+dataset's analytical value.
+
+Acknowledgements
+
+
+
+We extend our gratitude to NASA and their Facebook platform for facilitating open
+discussions on climate change. Their commitment to fostering public engagement and
+awareness on this critical global issue is deeply appreciated.
+
+Note to Data Scientists
+
+As data scientists analyze this dataset, it is crucial to approach the data impartially.
+Climate change is a subject with diverse viewpoints, and it is important to handle the
+data and any derived insights in a manner that respects these different perspectives.
+
+Climate Change Modeling Machine Learning Project
+
+Project Overview
+
+The Climate Change Modeling project aims to develop a machine learning model to
+predict and understand various aspects of climate change. This can include predicting
+temperature changes, sea level rise, extreme weather events, and other related
+phenomena. The project involves analyzing historical climate data, identifying trends,
+and making future projections to help in planning and mitigation efforts.
+
+Project Steps
+
+1. Understanding the Problem
+○ The goal is to predict and model various climate change indicators, such as
+
+temperature anomalies, precipitation patterns, and sea level changes,
+using historical climate data and machine learning techniques.
+
+2. Dataset Preparation
+○ Data Sources: Collect data from sources like NOAA (National Oceanic and
+
+Atmospheric Administration), NASA, IPCC (Intergovernmental Panel on
+Climate Change), and other climate research organizations.
+
+○ Features: Include variables like temperature, precipitation, CO2 levels,
+solar radiation, sea level, and other relevant environmental factors.
+
+
+
+○ Labels: Climate change indicators such as temperature anomalies, sea
+level rise, frequency of extreme weather events.
+
+3. Data Exploration and Visualization
+○ Load and explore the dataset using descriptive statistics and visualization
+
+techniques.
+○ Use libraries like Pandas for data manipulation and Matplotlib/Seaborn for
+
+visualization.
+○ Identify trends, patterns, and correlations in the data.
+
+4. Data Preprocessing
+○ Handle missing values through imputation or removal.
+○ Standardize or normalize continuous features.
+○ Encode categorical variables using techniques like one-hot encoding.
+○ Split the dataset into training, validation, and testing sets.
+
+5. Feature Engineering
+○ Create new features that may be useful for prediction, such as rolling
+
+averages or lagged variables.
+○ Perform feature selection to identify the most relevant features for the
+
+model.
+6. Model Selection and Training
+
+○ Choose appropriate machine learning algorithms based on the problem.
+Common choices include:
+
+■ Linear Regression
+■ Decision Trees
+■ Random Forest
+■ Gradient Boosting Machines (e.g., XGBoost)
+■ Neural Networks
+■ Long Short-Term Memory (LSTM) networks for time series data
+
+○ Train multiple models to find the best-performing one.
+7. Model Evaluation
+
+
+
+○ Evaluate the models using metrics like Mean Absolute Error (MAE), Mean
+Squared Error (MSE), and R-squared.
+
+○ Use cross-validation to ensure the model generalizes well to unseen data.
+○ Visualize model performance using plots like residual plots and predicted
+
+vs. actual plots.
+8. Future Projections
+
+○ Use the trained model to make future projections of climate change
+indicators.
+
+○ Validate the projections using available data and compare them with
+scientific forecasts and models.
+
+9. Scenario Analysis
+○ Conduct scenario analysis to understand the impact of different factors
+
+(e.g., CO2 emission scenarios) on climate change.
+○ Use the model to simulate different scenarios and assess their potential
+
+impact.
+10. Deployment (Optional)
+
+○ Deploy the model using a web framework like Flask or Django.
+○ Create a user-friendly interface where users can input data and receive
+
+climate change predictions and scenarios.
+11. Documentation and Reporting
+
+○ Document the entire process, including data exploration, preprocessing,
+feature engineering, model training, evaluation, and projections.
+
+○ Create a final report or presentation summarizing the project, results, and
+insights.
+
+
+
+Example: You can get the basic idea how you can create a project from here
+
+Sample Code
+
+Here’s a basic example using Python and scikit-learn to model climate change
+indicators
+
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+# Example: Using a mock dataset with climate data
+data = pd.read_csv('climate_data.csv')
+
+# Explore the dataset
+print(data.head())
+print(data.describe())
+
+# Preprocess the data
+# Separate features and labels
+X = data.drop('temperature_anomaly', axis=1)
+y = data['temperature_anomaly']
+
+
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
+random_state=42)
+
+# Standardize the features
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Train the model
+model = RandomForestRegressor(random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f'MAE: {mae}')
+print(f'MSE: {mse}')
+print(f'R2: {r2}')
+
+# Plot the results
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, y_pred, alpha=0.5)
+
+
+
+plt.xlabel('Actual Temperature Anomaly')
+plt.ylabel('Predicted Temperature Anomaly')
+plt.title('Actual vs Predicted Temperature Anomaly')
+plt.show()
+
+# Future projections (mock example)
+# Assuming we have future data for the same features
+future_data = pd.read_csv('future_climate_data.csv')
+future_data_scaled = scaler.transform(future_data)
+future_predictions = model.predict(future_data_scaled)
+
+print(future_predictions)
+
+This code demonstrates loading a climate dataset, preprocessing the data, training a
+Random Forest regressor, evaluating the model, and making future projections.
+
+Additional Tips
+
+● Incorporate domain expertise to ensure the model's predictions are realistic and
+scientifically valid.
+
+● Use advanced time series forecasting techniques like LSTM networks for more
+accurate long-term predictions.
+
+● Continuously update the model with new data to improve its accuracy and
+relevance over time.
+
+● Collaborate with climate scientists to validate and interpret the model's
+predictions.
+
+
+
+Example: You can get the basic idea how you can create a project from here
+
+Sample code with output
+
+%%capture
+# Install relevant libraries
+!pip install geopandas folium
+
+In [2]:
+# Import libraries
+import pandas as pd
+
+import numpy as np
+import random
+
+import os
+from tqdm.notebook import tqdm
+
+import geopandas as gpd
+
+from shapely.geometry import Point
+import folium
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+
+
+
+from sklearn.metrics import mean_squared_error
+pd.options.display.float_format = '{:.5f}'.format
+pd.options.display.max_rows = None
+
+%matplotlib inline
+import warnings
+warnings.filterwarnings('ignore')
+
+# You can ignore the Shapely GEOS warning :-)
+
+/opt/conda/lib/python3.7/site-packages/geopandas/_compat.py:115
+
+: UserWarning: The Shapely GEOS version (3.9.1-CAPI-1.14.2) is
+incompatible with the GEOS version PyGEOS was compiled with
+
+(3.10.4-CAPI-1.16.2). Conversions between both will be slow.
+shapely_geos_version, geos_capi_version_string
+
+In [3]:
+
+# Set seed for reproducability
+SEED = 2023
+
+random.seed(SEED)
+np.random.seed(SEED)
+
+
+
+2. Loading and previewing data
+
+In [4]:
+DATA_PATH = '/kaggle/input/playground-series-s3e20'
+
+# Load files
+train = pd.read_csv(os.path.join(DATA_PATH, 'train.csv'))
+
+test = pd.read_csv(os.path.join(DATA_PATH, 'test.csv'))
+samplesubmission = pd.read_csv(os.path.join(DATA_PATH,
+
+'sample_submission.csv'))
+
+# Preview train dataset
+train.head()
+
+Out[4]:
+
+ID l Sulp Su Sul C Cl Cl Cl C Cl Cl Cl
+l Sulph Sulph
+
+_L o w hurD lp phu lo ou o o l ou o o
+a urDio urDio
+
+A n e ioxid hu rDi u d_ u u o d_ u u
+t y xide_ xide_
+
+T g e e_S rD oxi . d cl d d u se d d
+i e SO2_ SO2_
+
+_L i k O2_ io de_ . _ ou _ _c d ns _s _s
+t a colu slant
+
+O t _ colu xi sen . cl d_ cl lo _ or e ol
+u r mn_n _colu
+
+N u n mn_ de sor o ba o u s _a ns ar
+d umbe mn_n
+
+_ d o num _c _az u se u d u zi or _
+e r_den umbe
+
+Y e ber_ lo imu d _p d _ rf m _z az
+sity_ r_den
+
+E dens ud th_ _t re _ o a ut e im
+
+
+
+A ity amf sity _fr ang o ss b pti c h_ nit ut
+R ac le p ur a ca e an h h
+_ tio _ e s l_ _ gl _ _
+W n h e d a e a a
+E ei _ e l n n
+E g h pt b gl gl
+K ht ei h e e e
+
+g d
+ht o
+
+ID
+_-
+
+3 2
+0. - 2 -1
+
+6 6 1 0 3
+51 0 9 61 3
+
+6 1 5. . -1 5.
+0_ . . 2 0. 08 8.
+
+-98. . 4. 5. 5 2 2. 6
+29 5 2 0 -0.0 0.603 -0.00 25 5. 7
+
+0 0 593 . 4 1 6 7 62 3
+.2 1 9 1 0011 02 007 56 80 8
+
+89 . 3 2 8 2 89 2
+90 0 0 9 7 95 6
+
+6 0 5 2 9 4
+_2 0 0 7 4
+
+2 4 3 9 2
+01 0 0 2
+
+2 8
+9_
+00
+
+ID - 2 2 0.00 0.728 0.000 0. 16. . 3 66 3 8. 0 30 3 -1
+1 _- 0 9 0 1 5 2 .
+
+002 21 01 13 9 6 96 1 6 . .3 9. 4
+0. . . 1 09 86 . 5 9. 7 9 2 59 5 5.
+
+
+
+51 5 2 9 9 1. 47 4. 0 5 38 5 1
+0_ 1 9 1 87 5 6 6 7 8
+29 0 0 9 3 7 0 8 6 3
+.2 0 0 0 2 3 3 9
+90 0 0 3 4 3
+_2 1 2
+01
+9_
+01
+
+ID
+_-
+
+4 3
+0. - 2 -1
+
+2 5 2 0 3
+51 0 9 60 4
+
+1 1 1. . 0.
+0_ . . 2 0. 06 15 2.
+
+72. . 6. 6. 1 2 4
+29 5 2 0 0.00 0.748 0.000 11 8. .3 5
+
+2 2 795 . 9 2 0 5 0
+.2 1 9 1 051 20 38 00 89 77 1
+
+84 . 8 8 3 1 1
+90 0 0 9 2 44 88 9
+
+6 2 4 1 8
+_2 0 0 5 5
+
+4 6 1 0 2
+01 0 0 4
+
+9 7
+9_
+02
+
+ID - 2 2 N .
+Na 5 51 4 1 0 -1 2 -1
+
+3 _- 0 9 0 3 NaN NaN NaN a .
+N 2 06 1 5. . 1. 4. 3
+
+0. . . 1 N . 2 4. 8 3 2 29 3 2.
+
+
+
+51 5 2 9 8. 54 0. 8 6 34 8 6
+0_ 1 9 5 73 9 6 2 0 0 6
+29 0 0 0 4 7 9 0 3 5
+.2 0 0 7 3 0 4 6 8
+90 0 0 7 3 3
+_2 4 2
+01
+9_
+03
+
+ID
+_-
+
+3 3
+0. - 2 -1
+
+9 3 0 3
+51 0 9 63 4
+
+8 5 8. . 7.
+0_ . . 2 0. 75 38 1.
+
+4.1 . 0. 5. 11 2 3
+29 5 2 0 -0.0 0.676 -0.00 12 1. .5 5
+
+4 4 212 . 5 7 4 3 9
+.2 1 9 1 0008 30 005 11 12 32 0
+
+7 . 9 1 6 5 2
+90 0 0 9 6 57 26 9
+
+8 0 9 8 9
+_2 0 0 8 8
+
+1 1 5 8
+01 0 0 1
+
+2 1
+9_
+04
+
+5 rows × 76 columns
+
+In [5]:
+
+# Preview test dataset
+
+
+
+test.head()
+
+Out[5]:
+
+Cl
+ID Cl C C Cl C Cl
+
+o
+_ o lo Cl lo o l o
+
+u
+L u u o u u o u
+
+S Cl d
+A d d u d d u d
+
+ul Sul ou _
+T Sulp Sulp Sulp _ _ d _ _ d _
+
+ph phu d_ s
+_ l hurD hurDi hurDi cl cl _c cl cl _ s
+
+l ur rDi se e
+L o w ioxid oxide oxide o o lo o o s ol
+
+a Di oxi ns n
+O n e e_S _SO _SO u u u u u u ar
+
+t y ox de_ or s
+N g e O2_ 2_col 2_sla . d d d d d rf _
+
+i e id sen _a or
+_ i k colu umn nt_co . _t _ _ _ _ a a
+
+t a e_ sor zi _
+Y t _ mn_ _nu lumn . o t b b o c zi
+
+u r cl _az m z
+E u n num mber _num p o as a pt e m
+
+d ou imu ut e
+A d o ber_ _den ber_ _ p e s ic _ ut
+
+e d_ th_ h_ ni
+R e dens sity_ densi pr _ _ e al a h
+
+fra ang an th
+_ ity amf ty e h pr _ _ l _
+
+cti le gl _
+W s ei es h d b a
+
+on e a
+E s g su ei e e n
+
+n
+E ur h re g pt d gl
+
+gl
+K e t ht h o e
+
+e
+
+
+
+ID
+_-
+0.
+5
+1
+0 3 8 4
+
+7
+_ - 2 6 4 1 -1
+
+4 0 3
+2 0 9 0 7 0 7. 3
+
+7 . -1 3.
+9. . . 2 2 2 4 9 3.
+
+N . 2. 2 00 6
+2 5 2 0 Na 2. . 7. 3 0
+
+0 0 NaN NaN NaN a . 3 4 .1 9
+9 1 9 2 N 0 3 9 5 4
+
+N . 1 0 13 7
+0 0 0 2 2 1 3 6 7
+
+3 7 79 0
+_ 0 0 7 3 7 2 5
+
+4 7 4
+2 0 0 3 4 5 5
+
+8
+0 4 8 0
+2
+2
+_
+0
+0
+
+ID - 2 2 0. 4 6 5 5 1 0 -3 4 -1
+_- 0 9 76. .
+
+0 0.00 0.69 0.000 00 8 4 4 4 1. . 0. 2. 3
+1 0. . . 1 239 .
+
+2 046 116 32 00 5 7 9 7 4 2 51 4 8.
+5 5 2 20 .
+
+2 0 3 6 1 6. 4 9 03 0 6
+1 1 9 9. . 5. 1 8 3 2 2 3
+
+
+
+0 0 0 7 1 7 4 4 1 5 2
+_ 0 0 3 4 0 7 4 2 9 8
+2 0 0 7 7 8 1 2
+9. 2 3 5 6
+2 4 2 8
+9
+0
+_
+2
+0
+2
+2
+_
+0
+1
+
+ID 3 8 3
+_- 7
+
+- 2 4 9 9 -1
+0. 9 1 0 4
+
+0 9 1 8 0 4
+5 8 0. . 5.
+
+. . 2 0. 3 4 0 39 4.
+1 -42 . 4. 7 2 9
+
+5 2 0 0.00 0.60 0.000 07 3. . 6. .0 7
+2 0 2 .05 . 7 5 6 3
+
+1 9 2 016 511 11 98 0 7 0 87 8
+_ 534 . 9 3 7 6
+
+0 0 2 7 8 9 9 36 4
+2 5 1 1 4
+
+0 0 0 5 3 9
+9. 7 8 3 8
+
+0 0 4 7 7 9
+2 0
+
+7 0 5
+9
+
+
+
+0
+_
+2
+0
+2
+2
+_
+0
+2
+
+ID
+_-
+0.
+5 5 6 5
+1 5
+
+- 2 0 0 7 -1
+0 0 1 0 4
+
+0 9 8 1 6 3
+_ 1 1. . -2 2.
+
+. . 2 0. 5 4 4 5.
+2 72. . 4. 7 3 4. 1
+
+5 2 0 0.00 0.69 0.000 20 4. . 6. 0
+3 9. 3 169 . 7 6 0 46 4
+
+1 9 2 035 692 24 10 9 7 3 2
+2 57 . 2 4 4 51 0
+
+0 0 2 3 9 2 6 7
+9 4 5 6 3 4
+
+0 0 1 4 8 8
+0 1 6 8 2
+
+0 0 0 0 3 9
+_ 2
+
+8 6 7
+2
+0
+2
+2
+
+
+
+_
+0
+3
+
+ID
+_-
+0.
+5
+1
+0 4 6 5
+
+5
+_ - 2 6 8 2 -1
+
+8 1 0 3
+2 0 9 5 4 8 3
+
+4 3. . -1 0.
+9. . . 2 0. 9 9 9 5.
+
+-0.0 76. . 9. 0 2 2. 1
+2 5 2 0 0.58 -0.00 20 4. . 6. 5
+
+4 4 003 190 . 2 6 8 90 2
+9 1 9 2 053 018 43 6 2 5 0
+
+2 86 . 8 5 4 78 2
+0 0 0 2 5 8 8 4 0
+
+0 3 2 5 6
+_ 0 0 5 0 1 1
+
+3 2 2 4
+2 0 0 1 4 8 2
+
+9
+0 4 8 7
+2
+2
+_
+0
+4
+
+5 rows × 75 columns
+
+
+
+In [6]:
+# Preview sample submission file
+
+samplesubmission.head()
+
+Out[6]:
+
+ID_LAT_LON_YE emiss
+AR_WEEK ion
+
+ID_-0.510_29.290 81.94
+0
+
+_2022_00 000
+
+ID_-0.510_29.290 81.94
+1
+
+_2022_01 000
+
+ID_-0.510_29.290 81.94
+2
+
+_2022_02 000
+
+ID_-0.510_29.290 81.94
+3
+
+_2022_03 000
+
+
+
+ID_-0.510_29.290 81.94
+4
+
+_2022_04 000
+
+In [7]:
+
+# Check size and shape of datasets
+train.shape, test.shape, samplesubmission.shape
+
+Out[7]:
+
+((79023, 76), (24353, 75), (24353, 2))
+
+In [8]:
+
+# Train to test sets ratio
+(test.shape[0]) / (train.shape[0] + test.shape[0])
+
+Out[8]:
+
+0.23557692307692307
+
+3. Statistical summaries
+
+In [9]:
+# Train statistical summary
+train.describe(include = 'all')
+
+
+
+Out[9]:
+
+C
+Cl Cl
+
+ID l C Cl C Cl
+o o C
+
+_ o lo o l o
+u u lo
+
+L u u u o u
+S d Cl d u
+
+A Sul d d d u d
+ul _ ou _ d
+
+T Sulp Sulp Sulp ph _ _ _ d _
+ph cl d_ s _
+
+_ l hur hurDi hurDi urD cl cl cl _ s
+l ur o se e s
+
+L o w Diox oxide oxide ioxi o o o s ol
+a Di u ns n ol
+
+O n e ide_ _SO _SO de u u u u ar
+t y ox d or s ar
+
+N g e SO2 2_col 2_sla _se . d d d rf _
+i e id _ _a or _
+
+_ i k _col umn nt_co nso . _ _ _ a a
+t a e_ b zi _ z
+
+Y t _ umn _nu lumn r_a . t b o c zi
+u r cl a m z e
+
+E u n _nu mber _nu zim o a pt e m
+d ou s ut e ni
+
+A d o mbe _den mber uth p s ic _ ut
+e d_ e h_ ni th
+
+R e r_de sity_ _den _a _ e al a h
+fra _ an th _
+
+_ nsity amf sity ngl h _ _ l _
+cti pr gl _ a
+
+W e e h d b a
+on e e a n
+
+E i ei e e n
+ss n gl
+
+E g g pt d gl
+ur gl e
+
+K h ht h o e
+e e
+
+t
+
+c 7 7 7 7 7 644 6441 6441 64 64 . 7 7 7 7 7 78 7 7 7
+
+
+
+o 9 9 9 9 9 14.0 4.00 4.00 41 41 . 8 8 8 8 8 53 8 8 8
+u 0 0 0 0 0 000 000 000 4. 4.0 . 5 5 5 5 5 9. 5 5 5
+n 2 2 2 2 2 0 00 00 3 3 3 3 3 00 3 3 3
+t 3 3 3 3 3 00 00 9 9. 9. 9. 9 00 9. 9. 9.
+
+. . . . 0 . 0 0 0 . 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0
+
+u
+7
+
+n
+9 N N N N N . N N N N N N N N N
+
+i Na
+0 a a a a NaN NaN NaN a . a a a a a a a a a
+
+q N
+2 N N N N N . N N N N N N N N N
+
+u
+3
+
+e
+
+ID
+_-
+
+t 0. N N N N N . N N N N N N N N N
+Na
+
+o 5 a a a a NaN NaN NaN a . a a a a a a a a a
+N
+
+p 1 N N N N N . N N N N N N N N N
+0
+_
+2
+
+
+
+9.
+2
+9
+0
+_
+2
+0
+1
+9
+_
+0
+0
+
+f
+N N N N N . N N N N N N N N N
+
+r Na
+1 a a a a NaN NaN NaN a . a a a a a a a a a
+
+e N
+N N N N N . N N N N N N N N N
+
+q
+
+- 2 2 2 5 5 4 1 0 4 -8 2
+1 9 0 6 5 9 6 9. . -1 0. 6. 7.
+
+m . .
+N 2 . 0. -7.
+
+. 9 4 7 1 2 0. 4 8 9
+e 8 8
+a 0 0 0.00 0.83 0.00 15 92
+
+. 2 2 0. 3 7 78 3 0 2
+a 9 8
+N . 0 005 485 004 84 58
+
+. . 0. 4 9 1 48 6 0 5
+n 1 0 0 0 2 7 3 2 3 2 4 3 9 5 9
+
+0 1 0 0 7 9 0 4 6 8 8 8
+7 5 0 0 7 7 8
+
+
+
+0 4 4 7
+0 8 6
+
+1
+9 1
+
+1 4
+0 0 0 0 3 1 0 3
+
+5 2 6. 4.
+. . . 5 5 3. . 7.
+
+. 0. 64. 8 30 4 4
+s N 6 8 8 . 1. 9. 5 0 8
+
+2 0.00 0.18 0.00 07 26 . .3 2 0
+t a 9 1 1 . 1 2 4 4 3
+
+9 027 538 021 13 33 5 74 8 3
+d N 4 0 6 . 6 5 7 9 7
+
+7 6 7 0 46 2 8
+5 3 5 3 1 0 4 2
+
+1 3 2 4
+2 8 0 6 5 5 3 7
+
+6 0
+1 8
+
+0
+
+2 1 2
+1
+
+- 2 0 0 4 -1
+0 0 0 1
+
+3 8 1 5 7 1. 2. 5
+. 5 . -1 0.
+
+. . 9 0. -17 0 7 8 9 3.
+mN 0 -0.0 . 0. 0 02 8
+
+2 2 . 0.24 -0.00 00 9.5 . 9. 4 9 4
+i a 0 010 . 4 1 .7 1
+
+9 2 0 182 089 00 37 6 0 4 8 6
+n N 0 0 . 9 7 39 8
+
+9 8 0 0 06 6 3 5 8 4
+0 6 7 73 2
+
+0 0 0 1 3 3 7 2
+0 8 0 9
+
+0 0 0 7 7 1
+2
+
+0 8 0
+
+
+
+2 4 5
+3
+
+- 2 0 1 5 3 -1
+6 0 3 2
+
+2 9 1 3 9 1 9. 2
+8 . -3 5. 4.
+
+. . 9 . 0. -56 5 7 9 5.
+2 N -0.0 . 0. 2 0. 8 6
+
+4 2 . 0 0.70 -0.00 11 .78 . 5. 7 9
+5 a 001 . 8 4 30 2 8
+
+5 6 0 0 582 008 05 23 4 7 4 9
+%N 0 . 5 1 91 9 6
+
+1 2 0 0 3 8 0 7 5 1
+6 4 7 9 7
+
+0 0 0 0 0 9 7 1
+3 5 1 6
+
+0 0 0 0 5 9 6
+4
+
+0 2 3
+
+2 5 5
+4
+
+- 2 0 2 5 9
+6 1 0 4 -8 2
+
+1 9 2 6 7 3
+2 5. . -1 1. 4. 8.
+
+. . 0 . 0. -12 3 3
+5 N . 1. 1 2 2. 1 6 3
+
+8 8 . 0 0.00 0.80 0.00 16 .44 . 2.
+0 a . 7 3 7 67 1 4 3
+
+8 8 0 0 002 912 002 18 17 8 5
+%N . 5 0 2 39 9 4 3
+
+2 3 0 0 5 3 5 3
+5 6 7 1 6 3 6
+
+0 0 0 0 4 2
+1 9 5 3 5 3
+
+0 0 0 0 3 5
+7
+
+0 1 5
+
+- 3 2 3 4 -4 3
+7 N 0.00 0.94 0.00 0. 72. 6 6 5 2 0 9.
+
+.
+1 0 0 9 4. 8. 1.
+
+5 a 015 279 012 21 05 5 5 5 3. . 40
+.
+
+. . 2 . 18 99 4 6 7 7 3 22 4 1 4
+
+
+
+%N 3 4 1 0 2 9 . 2 6 2. 8 0 0 4 3 9
+0 7 . 0 . 3. 9 5 2 6 2 9
+3 1 0 0 3 8 8 0 8 2 7 8
+0 0 0 0 0 4 3 3 9 7 0 8
+0 0 0 0 3 2 2
+
+0 6 6 2
+0 4 8
+
+1
+2 8 1
+
+2
+- 3 0 5 9 1 2
+
+3 0 6 -2 4
+0 1 2 2 2 3 5
+
+8 . 5. 2. 2.
+. . 1 . 0. 12 9 8 0. 78
+
+mN . 4 7 9 6 0
+5 5 . 0 0.00 1.88 0.00 30 2.0 1. 4. 0 .2
+
+a a . . 3 5 5 6
+1 3 0 0 419 524 424 00 95 6 2 0 23
+
+x N . 2 6 1 3 0
+0 2 0 0 0 20 1 3 0 04
+
+3 5 2 1 4
+0 0 0 0 5 9 0
+
+9 1 5 7 4
+0 0 0 0 5 4 0
+
+4
+0 8 6
+
+6
+
+11 rows × 76 columns
+
+From the above statistical summary, we can deduce some of the following insights:
+
+● The train data provided ranges from year 2019 to 2021
+● Minimum recorded CO2 emissions is 0.32064 and a maximum of 3167.76800
+● Week of the year starts from 0 to 52
+
+
+
+● The latitude and longitudes ranges show that the regions are mostly within
+Rwanda
+
+In [10]:
+# Target variable distribution
+sns.set_style('darkgrid')
+plt.figure(figsize = (13, 7))
+sns.histplot(train.emission, kde = True, bins = 15)
+
+plt.title('Target variable distribution', y = 1.02, fontsize =
+15)
+display(plt.show(), train.emission.skew())
+
+
+
+None
+
+10.173825825101622
+
+The target variable is skewed to the right with a a degree of ~7.
+
+Some of the techniques used to handle skewness include:
+
+● Log transform
+● Box-cox transform
+● Square root transform
+● etc
+
+4. Outliers
+
+In [11]:
+# Plotting boxplot for the CO2 emissions
+sns.set_style('darkgrid')
+
+plt.figure(figsize = (13, 7))
+sns.boxplot(train.emission)
+plt.title('Boxplot showing CO2 emission outliers', y = 1.02,
+fontsize = 15)
+plt.show()
+
+
+
+Outliers are those data points which differ significantly from other observations
+present in given dataset.
+
+Suggestions on how to handle outliers:
+
+● Transforming the outliers by scaling - log transformation, box-cox
+transformation ...
+
+● Dropping outliers
+● Imputation by replacing outliers with mean, median ...
+
+5. Geo Visualisation - EDA
+
+In [12]:
+# Combine train and test for easy visualisation
+
+
+
+train_coords = train.drop_duplicates(subset = ['latitude',
+'longitude'])
+test_coords = test.drop_duplicates(subset = ['latitude',
+
+'longitude'])
+train_coords['set_type'], test_coords['set_type'] = 'train',
+'test'
+
+all_data = pd.concat([train_coords, test_coords], ignore_index
+= True)
+# Create point geometries
+
+geometry = gpd.points_from_xy(all_data.longitude,
+all_data.latitude)
+geo_df = gpd.GeoDataFrame(
+
+all_data[["latitude", "longitude", "set_type"]],
+geometry=geometry
+)
+
+# Preview the geopandas df
+
+geo_df.head()
+
+Out[12]:
+
+
+
+latitu longit set_t
+geometry
+
+de ude ype
+
+-0.51 29.29 POINT (29.29000
+0 train
+
+000 000 -0.51000)
+
+-0.52 29.47 POINT (29.47200
+1 train
+
+800 200 -0.52800)
+
+-0.54 29.65 POINT (29.65300
+2 train
+
+700 300 -0.54700)
+
+-0.56 30.03 POINT (30.03100
+3 train
+
+900 100 -0.56900)
+
+-0.59 29.10 POINT (29.10200
+4 train
+
+800 200 -0.59800)
+
+In [13]:
+
+# Create a canvas to plot your map on
+all_data_map = folium.Map(prefer_canvas=True)
+
+
+
+# Create a geometry list from the GeoDataFrame
+geo_df_list = [[point.xy[1][0], point.xy[0][0]] for point in
+geo_df.geometry]
+
+# Iterate through list and add a marker for each volcano,
+color-coded by its type.
+i = 0
+
+for coordinates in geo_df_list:
+
+# assign a color marker for the type set
+if geo_df.set_type[i] == "train":
+
+type_color = "green"
+
+elif geo_df.set_type[i] == "test":
+
+type_color = "orange"
+
+# Place the markers
+
+all_data_map.add_child(
+
+folium.CircleMarker(
+location=coordinates,
+radius = 1,
+
+weight = 4,
+
+zoom =10,
+popup=
+"Set: " + str(geo_df.set_type[i]) + "<br>"
+
+"Coordinates: " + str([round(x, 2) for x in
+
+
+
+geo_df_list[i]]),
+
+color = type_color),
+)
+
+i = i + 1
+
+all_data_map.fit_bounds(all_data_map.get_bounds())
+
+all_data_map
+
+Out[13]:
+
+Make this Notebook Trusted to load map: File -> Trust Notebook
+
+6. Missing values and duplicates
+
+In [14]:
+
+# Check for missing values
+train.isnull().sum().any(), test.isnull().sum().any()
+
+Out[14]:
+
+(True, True)
+
+In [15]:
+# Plot missing values in train set
+
+ax = train.isna().sum().sort_values(ascending =
+False)[:15][::-1].plot(kind = 'barh', figsize = (9, 10))
+
+
+
+plt.title('Percentage of Missing Values Per Column in Train
+
+Set', fontdict={'size':15})
+for p in ax.patches:
+
+percentage
+
+='{:,.0f}%'.format((p.get_width()/train.shape[0])*100)
+
+width, height =p.get_width(),p.get_height()
+x=p.get_x()+width+0.02
+y=p.get_y()+height/2
+
+ax.annotate(percentage,(x,y))
+
+
+
+Suggestions on how to handle missing values:
+
+● Fill in missing values with mode, mean, median..
+● Drop Missing datapoints with missing values
+● Fill in with a large number e.g -999999
+
+In [16]:
+# Check for duplicates
+
+train.duplicated().any(), test.duplicated().any()
+
+
+
+Out[16]:
+
+(False, False)
+
+7. Date features EDA
+
+In [17]:
+
+# Year countplot
+plt.figure(figsize = (14, 7))
+
+sns.countplot(x = 'year', data = train)
+plt.title('Year count plot - Train')
+
+plt.show()
+
+
+
+In [18]:
+
+# Year countplot
+plt.figure(figsize = (4, 7))
+sns.countplot(x = 'year', data = test)
+
+plt.title('Year count plot - Test')
+
+plt.show()
+
+
+
+● The number of observations of CO2 emissions are the same across the years
+(2019, 2020, 2021)
+
+● Year 2022 (in the test set) has fewer number of observations
+
+In [19]:
+
+# Week countplot
+plt.figure(figsize = (14, 7))
+
+sns.countplot(x = 'week_no', data = train)
+
+
+
+plt.title('Week count plot - Train')
+
+plt.show()
+
+● The number of observations of CO2 emissions are relatively the same across
+the weeks
+
+In [20]:
+train.drop_duplicates(subset = ['year',
+
+'week_no']).groupby(['year'])[['week_no']].count()
+
+Out[20]:
+
+
+
+week
+_no
+
+ye
+ar
+
+20
+53
+
+19
+
+20
+53
+
+20
+
+20
+53
+
+21
+
+8. Correlations - EDA
+
+In [21]:
+# Top 20 correlated features to the target
+top20_corrs =
+
+abs(train.corr()['emission']).sort_values(ascending =
+
+
+
+False).head(20)
+top20_corrs
+
+Out[21]:
+emission
+
+1.00000
+longitude
+
+0.10275
+UvAerosolLayerHeight_aerosol_height
+0.06901
+UvAerosolLayerHeight_aerosol_pressure
+
+0.06814
+Cloud_surface_albedo
+
+0.04659
+CarbonMonoxide_H2O_column_number_density
+0.04322
+CarbonMonoxide_CO_column_number_density
+0.04133
+Formaldehyde_tropospheric_HCHO_column_number_density_amf
+0.04026
+UvAerosolLayerHeight_aerosol_optical_depth
+
+0.04016
+UvAerosolLayerHeight_sensor_azimuth_angle
+
+0.03514
+
+
+
+NitrogenDioxide_solar_azimuth_angle
+0.03342
+Formaldehyde_tropospheric_HCHO_column_number_density
+0.03333
+SulphurDioxide_solar_azimuth_angle
+
+0.03234
+Formaldehyde_solar_azimuth_angle
+0.03081
+
+NitrogenDioxide_sensor_altitude
+
+0.02754
+UvAerosolLayerHeight_solar_azimuth_angle
+0.02721
+
+NitrogenDioxide_sensor_azimuth_angle
+0.02710
+CarbonMonoxide_solar_azimuth_angle
+0.02628
+SulphurDioxide_sensor_azimuth_angle
+0.02508
+Ozone_solar_azimuth_angle
+0.02485
+
+Name: emission, dtype: float64
+
+In [22]:
+# Quantify correlations between features
+corr = train[list(top20_corrs.index)].corr()
+
+
+
+plt.figure(figsize = (13, 8))
+sns.heatmap(corr, cmap='RdYlGn', annot = True, center = 0)
+plt.title('Correlogram', fontsize = 15, color = 'darkgreen')
+plt.show()
+
+9. Timeseries visualization - EDA
+
+
+
+In [23]:
+
+linkcode
+# Sample a unique location and visualize its emissions across
+the years
+train.latitude, train.longitude = round(train.latitude, 2),
+
+round(train.longitude, 2)
+sample_loc = train[(train.latitude == -0.510) &
+(train.longitude == 29.290)]
+
+# Plot a line plot
+sns.set_style('darkgrid')
+fig, axes = plt.subplots(nrows = 3, ncols = 1, figsize = (13,
+
+10))
+fig.suptitle('Co2 emissions for location lat -23.75 lon 28.75',
+y=1.02, fontsize = 15)
+
+for ax, data, year, color, in zip(axes.flatten(), sample_loc,
+sample_loc.year.unique(), ['#882255','#332288', '#999933' ,
+'orangered']):
+df = sample_loc[sample_loc.year == year]
+sns.lineplot(x=df.week_no,y= df.emission, ax = ax, label =
+
+year, color = color)
+plt.legend()
+plt.tight_layout()
+
+
+
+Reference code
