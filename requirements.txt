@@ -6,3 +6,4 @@ seaborn
 jupyter
 streamlit
 plotly
+xgboost
