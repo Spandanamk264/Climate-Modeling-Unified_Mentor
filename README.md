@@ -2,7 +2,7 @@
 
 > **What happens when you combine Machine Learning with Climate Science?**
 >
-> This project is a comprehensive **Climate Change Modeling System** developed during my **Data Science Internship at Unified Mentor**. It represents my **4th project**, where I explore the intersection of environmental physics and predictive analytics.
+> This project is a comprehensive **Climate Change Modeling System** developed during my **Data Science Internship at Unified Mentor**. It represents one of my project, where I explore the intersection of environmental physics and predictive analytics.
 
 ---
 
@@ -65,4 +65,4 @@ A huge thank you to **Unified Mentor** for providing this opportunity. Each proj
 Here’s to building technology that informs, empowers, and serves a greater purpose. 🚀
 
 ---
-*ClimateAI v3.0 | Developed by your friendly Data Science Intern*
+*ClimateAI v3.0 | Developed by Spandana Mahadevappa Kandagal*
